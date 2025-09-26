@@ -1,46 +1,24 @@
 # DR9.AI - Site Oficial
 
-Site institucional moderno e responsivo da **DR9.AI**, especializada em soluções de Inteligência Artificial e Automação.
+Site institucional da DR9.AI - Inteligência Artificial e Automação Descomplicada.
 
-## 🚀 Melhorias Implementadas
+## 🚀 Como configurar no GitHub Pages
 
-### ✅ **Performance**
-- Otimização de carregamento com `preload`
-- Partículas com performance adaptável
-- Código JavaScript modular e eficiente
-
-### ✅ **Responsividade**
-- Design mobile-first
-- Grid layout flexível
-- Textos escaláveis com `clamp()`
-
-### ✅ **Acessibilidade**
-- HTML semântico
-- Atributos ARIA
-- Navegação por teclado
-
-### ✅ **SEO**
-- Meta tags otimizadas
-- Estrutura de headings correta
-- Conteúdo semanticamente organizado
-
-### ✅ **UX/UI**
-- Animações suaves
-- Efeitos de hover
-- Feedback visual interativo
-- Design moderno com gradientes
-
-## 🛠 Tecnologias
-- HTML5 Semântico
-- CSS3 com Variáveis
-- JavaScript ES6+
-- Canvas API
-- GitHub Pages
+1. Faça upload destes arquivos para seu repositório
+2. O repositório deve se chamar: `seuusuario.github.io`
+3. Vá em Settings > Pages
+4. Em "Source", selecione a branch `main`
+5. Clique em Save
+6. Seu site estará disponível em: `https://seuusuario.github.io`
 
 ## 📞 Contato
+
 - WhatsApp: [Clique aqui](https://wa.me/message/JLUZNOGJKK4UK1)
 - Telegram: [Clique aqui](https://t.me/DR9AI)
 
----
+## 🛠 Tecnologias
 
-**DR9.AI** - Transformando ideias em soluções inteligentes! 🚀
+- HTML5
+- CSS3
+- JavaScript
+- GitHub Pages
