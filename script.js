@@ -1,61 +1,116 @@
-const canvas = document.getElementById('bg-animation');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particlesArray = [];
-
-class Particle {
-  constructor(x, y, size, speedX, speedY) {
-    this.x = x;
-    this.y = y;
-    this.size = size;
-    this.speedX = speedX;
-    this.speedY = speedY;
-  }
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-
-    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-  }
-  draw() {
-    ctx.fillStyle = 'rgba(0,212,255,0.7)';
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-  }
+/* Fundo geral */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  text-align: center;
 }
 
-function init() {
-  particlesArray = [];
-  let numberOfParticles = 60;
-  for (let i = 0; i < numberOfParticles; i++) {
-    let size = Math.random() * 3 + 1;
-    let x = Math.random() * canvas.width;
-    let y = Math.random() * canvas.height;
-    let speedX = (Math.random() * 1) - 0.5;
-    let speedY = (Math.random() * 1) - 0.5;
-    particlesArray.push(new Particle(x, y, size, speedX, speedY));
-  }
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < particlesArray.length; i++) {
-    particlesArray[i].update();
-    particlesArray[i].draw();
-  }
-  requestAnimationFrame(animate);
+/* Container central */
+.container {
+  z-index: 1;
+  max-width: 600px;
+  padding: 20px;
 }
 
-init();
-animate();
+/* Logo */
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
 
-window.addEventListener('resize', function() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  init();
-});
+/* Título em destaque */
+.highlight {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #00FFB0;
+  text-shadow: 0 0 15px #00FFB0, 0 0 30px #6A1B9A;
+  margin-bottom: 10px;
+}
+
+/* Subtítulo */
+h2 {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* Lista */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Botões */
+.btn {
+  display: block;
+  width: 100%;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.whatsapp {
+  background: #00FFB0;
+}
+
+.whatsapp:hover {
+  background: #00cc8a;
+}
+
+.telegram {
+  background: #0D47A1;
+}
+
+.telegram:hover {
+  background: #082d66;
+}
+
+/* QR Code */
+.qrcode {
+  margin-top: 25px;
+}
+
+.qrcode img {
+  width: 180px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,255,176,0.7);
+}
+
+/* Rodapé */
+footer {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.highlight-footer {
+  color: #00FFB0;
+  font-weight: bold;
+}
