@@ -14,11 +14,13 @@ Site institucional da DR9.AI - Inteligência Artificial e Automação Descomplic
 ## 📞 Contato
 
 - WhatsApp: [Clique aqui](https://wa.me/message/JLUZNOGJKK4UK1)
-- Telegram: [Clique aqui](https://t.me/DR9AI)
+- Telegram: [@dr9iSuporte](https://t.me/dr9iSuporte)
 
 ## 🛠 Tecnologias
 
 - HTML5
 - CSS3
 - JavaScript
+- GSAP (animações)
+- Particles.js (efeitos de partículas)
 - GitHub Pages
