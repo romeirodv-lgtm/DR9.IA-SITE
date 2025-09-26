@@ -7,8 +7,6 @@
     <meta name="description" content="DR9.AI - Soluções em IA, automação e licenças digitais. Transforme seu negócio com tecnologia de ponta.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <style>
         :root {
             --primary: #6C63FF;
@@ -43,6 +41,7 @@
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
             background-image: 
                 radial-gradient(circle at 5% 10%, rgba(108, 99, 255, 0.05) 0%, transparent 30%),
                 radial-gradient(circle at 95% 90%, rgba(255, 101, 132, 0.05) 0%, transparent 30%);
@@ -56,18 +55,8 @@
         }
 
         section {
-            padding: 100px 0;
+            padding: 80px 0;
             position: relative;
-        }
-
-        /* Particles Background */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
         }
 
         /* Header */
@@ -161,14 +150,18 @@
             color: var(--light);
             font-size: 24px;
             cursor: pointer;
+            z-index: 1001;
         }
 
         /* Hero Section */
         .hero {
-            padding: 180px 0 100px;
+            padding: 160px 0 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero-content {
@@ -176,12 +169,13 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            width: 100%;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 900;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
@@ -191,13 +185,136 @@
         }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             margin-bottom: 40px;
             color: var(--gray);
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 300;
+        }
+
+        /* Checkbox List */
+        .checkbox-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+            align-items: center;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px 25px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            width: 100%;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+        }
+
+        .checkbox-item:hover {
+            transform: translateX(10px);
+            border-color: var(--primary);
+        }
+
+        .checkbox-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .checkbox-available {
+            background: var(--success);
+            color: white;
+        }
+
+        .checkbox-soon {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .checkbox-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--light);
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            min-width: 220px;
+            justify-content: center;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            border-color: white;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* Features Section */
@@ -208,11 +325,11 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .section-title h2 {
-            font-size: 3.2rem;
+            font-size: clamp(2rem, 4vw, 3.2rem);
             margin-bottom: 15px;
             background: var(--gradient);
             -webkit-background-clip: text;
@@ -230,14 +347,14 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
         .feature-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
-            padding: 40px 30px;
+            padding: 30px;
             border-radius: var(--radius);
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: var(--transition);
@@ -268,20 +385,20 @@
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            font-size: 35px;
+            font-size: 30px;
             color: white;
         }
 
         .feature-card h3 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--light);
             font-weight: 700;
@@ -295,7 +412,7 @@
 
         .status {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 6px 16px;
             border-radius: 50px;
             font-size: 14px;
             font-weight: 600;
@@ -313,41 +430,11 @@
             border: 1px solid var(--primary);
         }
 
-        /* Contact Section */
-        .contact {
-            text-align: center;
-            position: relative;
-        }
-
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            padding: 60px 40px;
-            border-radius: var(--radius);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: var(--shadow);
-        }
-
-        .contact h3 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: var(--light);
-            font-weight: 700;
-        }
-
-        .contact p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            color: var(--gray);
-        }
-
         /* CTA Section */
         .cta {
             background: var(--gradient-2);
             text-align: center;
-            padding: 100px 0;
+            padding: 80px 0;
             position: relative;
             overflow: hidden;
         }
@@ -369,14 +456,14 @@
         }
 
         .cta h2 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             margin-bottom: 20px;
             color: white;
             font-weight: 800;
         }
 
         .cta p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 40px;
             color: rgba(255, 255, 255, 0.9);
             max-width: 600px;
@@ -384,73 +471,10 @@
             margin-right: auto;
         }
 
-        .buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: var(--transition);
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-        }
-
-        .btn-primary:hover {
-            background: transparent;
-            border-color: white;
-            color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border-color: white;
-            color: white;
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
         /* Footer */
         footer {
             background: var(--dark);
-            padding: 80px 0 30px;
+            padding: 60px 0 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -536,6 +560,7 @@
             z-index: 1;
             opacity: 0.7;
             font-size: 2rem;
+            pointer-events: none;
         }
 
         .floating-1 {
@@ -562,79 +587,26 @@
             100% { transform: translateY(0) rotate(0deg); }
         }
 
-        /* Glow Effects */
-        .glow {
-            text-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
-        }
-
-        /* Checkbox Styling */
-        .checkbox-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin: 30px 0;
-            align-items: center;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 15px 25px;
-            border-radius: var(--radius);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition);
+        /* Particles Canvas */
+        #particles-js {
+            position: fixed;
             width: 100%;
-            max-width: 400px;
-        }
-
-        .checkbox-item:hover {
-            transform: translateX(10px);
-            border-color: var(--primary);
-        }
-
-        .checkbox-icon {
-            width: 25px;
-            height: 25px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .checkbox-available {
-            background: var(--success);
-            color: white;
-        }
-
-        .checkbox-soon {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--gray);
-        }
-
-        .checkbox-text {
-            font-size: 1.1rem;
-            font-weight: 500;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
 
         /* Responsive Design */
         @media (max-width: 968px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
-            
             .features-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
-
-            .cta h2 {
-                font-size: 2.8rem;
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
 
@@ -642,22 +614,17 @@
             .header-content {
                 flex-direction: column;
                 gap: 15px;
+                text-align: center;
             }
 
             nav ul {
                 gap: 20px;
+                flex-direction: column;
             }
 
             .hero {
-                padding: 150px 0 80px;
-            }
-
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
+                padding: 140px 0 60px;
+                min-height: auto;
             }
 
             .buttons {
@@ -668,7 +635,6 @@
             .btn {
                 width: 100%;
                 max-width: 300px;
-                justify-content: center;
             }
 
             .mobile-menu {
@@ -688,22 +654,51 @@
             nav.active {
                 display: block;
             }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
+            
+            .checkbox-item {
+                padding: 12px 20px;
+                max-width: 100%;
             }
             
-            .contact-content {
-                padding: 40px 20px;
+            .checkbox-text {
+                font-size: 1rem;
             }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .cta {
+                padding: 60px 0;
+            }
+        }
 
-            .cta h2 {
+        @media (max-width: 480px) {
+            .hero h1 {
                 font-size: 2.2rem;
             }
-
-            .cta p {
-                font-size: 1.1rem;
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .checkbox-item {
+                padding: 10px 15px;
+            }
+            
+            .btn {
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
+            
+            .feature-card {
+                padding: 20px 15px;
+            }
+            
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
             }
         }
     </style>
@@ -743,7 +738,7 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1 class="glow">DR9.AI</h1>
+                <h1>DR9.AI</h1>
                 <p>Softwares, IA e Automação Descomplicada</p>
                 
                 <div class="checkbox-list">
@@ -809,26 +804,8 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h3>Entre em Contato</h3>
-                <p>Estamos prontos para transformar sua ideia em realidade com soluções de IA personalizadas.</p>
-                <div class="buttons">
-                    <a href="https://wa.me/message/JLUZNOGJKK4UK1" class="btn btn-primary">
-                        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
-                    </a>
-                    <a href="https://t.me/dr9iSuporte" class="btn btn-outline">
-                        <i class="fab fa-telegram"></i> Falar no Telegram
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA Section -->
-    <section class="cta">
+    <section class="cta" id="contact">
         <div class="container">
             <div class="cta-content">
                 <h2>Pronto para revolucionar seu negócio?</h2>
@@ -887,141 +864,144 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         // Particles.js Configuration
-        particlesJS("particles-js", {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#6C63FF" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5, random: true },
-                size: { value: 3, random: true },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#6C63FF",
-                    opacity: 0.2,
-                    width: 1
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS("particles-js", {
+                particles: {
+                    number: { 
+                        value: 80, 
+                        density: { 
+                            enable: true, 
+                            value_area: 800 
+                        } 
+                    },
+                    color: { value: "#6C63FF" },
+                    shape: { type: "circle" },
+                    opacity: { 
+                        value: 0.5, 
+                        random: true 
+                    },
+                    size: { 
+                        value: 3, 
+                        random: true 
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#6C63FF",
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
                 },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" },
-                    resize: true
-                }
-            },
-            retina_detect: true
-        });
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { 
+                            enable: true, 
+                            mode: "repulse" 
+                        },
+                        onclick: { 
+                            enable: true, 
+                            mode: "push" 
+                        },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
 
-        // Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mainNav = document.getElementById('mainNav');
-        
-        mobileMenu.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-        });
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
+            // Mobile Menu Toggle
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mainNav = document.getElementById('mainNav');
+            
+            if (mobileMenu && mainNav) {
+                mobileMenu.addEventListener('click', () => {
+                    mainNav.classList.toggle('active');
+                    mobileMenu.innerHTML = mainNav.classList.contains('active') ? 
+                        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                });
             }
-        });
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu after clicking
-                    if (mainNav.classList.contains('active')) {
-                        mainNav.classList.remove('active');
+            // Header Scroll Effect
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('header');
+                if (header) {
+                    if (window.scrollY > 100) {
+                        header.classList.add('header-scrolled');
+                    } else {
+                        header.classList.remove('header-scrolled');
                     }
                 }
             });
-        });
 
-        // Typing Animation
-        const typingText = document.querySelector('.hero h1');
-        const text = "DR9.AI";
-        let currentText = "";
-        let charIndex = 0;
-        
-        function type() {
-            if (charIndex < text.length) {
-                currentText += text.charAt(charIndex);
-                typingText.textContent = currentText;
-                charIndex++;
-                setTimeout(type, 150);
-            }
-        }
-        
-        // Start typing animation after page load
-        window.addEventListener('load', () => {
-            setTimeout(type, 500);
-        });
-
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-        
-        // Animate elements on scroll
-        gsap.utils.toArray('.feature-card').forEach(card => {
-            gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: 'power2.out'
+            // Smooth Scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu after clicking
+                        if (mainNav && mainNav.classList.contains('active')) {
+                            mainNav.classList.remove('active');
+                            mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                    }
+                });
             });
-        });
-        
-        // Animate hero content
-        gsap.from('.hero-content', {
-            duration: 1.5,
-            y: 50,
-            opacity: 0,
-            ease: 'power3.out'
-        });
-        
-        // Animate checkbox items
-        gsap.from('.checkbox-item', {
-            scrollTrigger: {
-                trigger: '.checkbox-list',
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
-            },
-            x: -50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: 'power2.out'
+
+            // Animation on scroll
+            function animateOnScroll() {
+                const elements = document.querySelectorAll('.feature-card, .checkbox-item');
+                
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.style.opacity = "1";
+                        element.style.transform = "translateY(0)";
+                    }
+                });
+            }
+
+            // Set initial state for animated elements
+            document.querySelectorAll('.feature-card, .checkbox-item').forEach(element => {
+                element.style.opacity = "0";
+                element.style.transform = "translateY(20px)";
+                element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            });
+
+            // Trigger animation on scroll
+            window.addEventListener('scroll', animateOnScroll);
+            // Trigger once on load
+            animateOnScroll();
+
+            // Add loading animation
+            window.addEventListener('load', function() {
+                document.body.style.opacity = "0";
+                document.body.style.transition = "opacity 0.5s ease";
+                
+                setTimeout(function() {
+                    document.body.style.opacity = "1";
+                }, 100);
+            });
         });
     </script>
 </body>
