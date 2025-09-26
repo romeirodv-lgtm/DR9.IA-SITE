@@ -1,116 +1,152 @@
-/* Fundo geral */
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  overflow: hidden;
-  font-family: 'Arial', sans-serif;
-  color: white;
-  text-align: center;
+class Particles {
+  constructor() {
+    this.canvas = document.getElementById('particles');
+    this.ctx = this.canvas.getContext('2d');
+    this.particlesArray = [];
+    this.mouse = { x: undefined, y: undefined, radius: 100 };
+    
+    this.init();
+    this.animate();
+    this.setupEventListeners();
+  }
+
+  init() {
+    this.resizeCanvas();
+    this.createParticles();
+  }
+
+  resizeCanvas() {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+  }
+
+  createParticles() {
+    this.particlesArray = [];
+    const numberOfParticles = Math.min(150, (this.canvas.width * this.canvas.height) / 10000);
+    
+    for (let i = 0; i < numberOfParticles; i++) {
+      this.particlesArray.push(new Particle(this.canvas));
+    }
+  }
+
+  animate() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    // Update and draw particles
+    for (let i = 0; i < this.particlesArray.length; i++) {
+      this.particlesArray[i].update(this.mouse);
+      this.particlesArray[i].draw(this.ctx);
+    }
+    
+    // Draw connections
+    this.drawConnections();
+    
+    requestAnimationFrame(() => this.animate());
+  }
+
+  drawConnections() {
+    for (let a = 0; a < this.particlesArray.length; a++) {
+      for (let b = a; b < this.particlesArray.length; b++) {
+        const dx = this.particlesArray[a].x - this.particlesArray[b].x;
+        const dy = this.particlesArray[a].y - this.particlesArray[b].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < 100) {
+          const opacity = 1 - (distance / 100);
+          this.ctx.strokeStyle = `rgba(0, 195, 255, ${opacity * 0.3})`;
+          this.ctx.lineWidth = 1;
+          this.ctx.beginPath();
+          this.ctx.moveTo(this.particlesArray[a].x, this.particlesArray[a].y);
+          this.ctx.lineTo(this.particlesArray[b].x, this.particlesArray[b].y);
+          this.ctx.stroke();
+        }
+      }
+    }
+  }
+
+  setupEventListeners() {
+    window.addEventListener('resize', () => {
+      this.resizeCanvas();
+      this.createParticles();
+    });
+
+    window.addEventListener('mousemove', (event) => {
+      this.mouse.x = event.x;
+      this.mouse.y = event.y;
+    });
+
+    window.addEventListener('mouseout', () => {
+      this.mouse.x = undefined;
+      this.mouse.y = undefined;
+    });
+  }
 }
 
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+class Particle {
+  constructor(canvas) {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 0.5;
+    this.speedX = Math.random() * 1 - 0.5;
+    this.speedY = Math.random() * 1 - 0.5;
+    this.canvas = canvas;
+  }
+
+  update(mouse) {
+    // Move particle
+    this.x += this.speedX;
+    this.y += this.speedY;
+    
+    // Mouse interaction
+    if (mouse.x && mouse.y) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      if (distance < mouse.radius) {
+        const force = (mouse.radius - distance) / mouse.radius;
+        this.x -= dx * force * 0.05;
+        this.y -= dy * force * 0.05;
+      }
+    }
+    
+    // Boundary check with smooth bounce
+    if (this.x <= 0 || this.x >= this.canvas.width) {
+      this.speedX = -this.speedX * 0.9;
+      this.x = this.x <= 0 ? 1 : this.canvas.width - 1;
+    }
+    
+    if (this.y <= 0 || this.y >= this.canvas.height) {
+      this.speedY = -this.speedY * 0.9;
+      this.y = this.y <= 0 ? 1 : this.canvas.height - 1;
+    }
+    
+    // Slow down over time
+    this.speedX *= 0.999;
+    this.speedY *= 0.999;
+  }
+
+  draw(ctx) {
+    const gradient = ctx.createRadialGradient(
+      this.x, this.y, 0,
+      this.x, this.y, this.size
+    );
+    gradient.addColorStop(0, 'rgba(0, 195, 255, 1)');
+    gradient.addColorStop(1, 'rgba(0, 195, 255, 0)');
+    
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
 }
 
-/* Container central */
-.container {
-  z-index: 1;
-  max-width: 600px;
-  padding: 20px;
-}
+// Initialize particles when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  new Particles();
+});
 
-/* Logo */
-.logo {
-  width: 120px;
-  margin-bottom: 20px;
-}
-
-/* Título em destaque */
-.highlight {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #00FFB0;
-  text-shadow: 0 0 15px #00FFB0, 0 0 30px #6A1B9A;
-  margin-bottom: 10px;
-}
-
-/* Subtítulo */
-h2 {
-  font-size: 1.3rem;
-  font-weight: 300;
-  color: #ccc;
-  margin-bottom: 20px;
-}
-
-/* Lista */
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-/* Botões */
-.btn {
-  display: block;
-  width: 100%;
-  margin: 10px auto;
-  padding: 15px;
-  border-radius: 30px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-
-.whatsapp {
-  background: #00FFB0;
-}
-
-.whatsapp:hover {
-  background: #00cc8a;
-}
-
-.telegram {
-  background: #0D47A1;
-}
-
-.telegram:hover {
-  background: #082d66;
-}
-
-/* QR Code */
-.qrcode {
-  margin-top: 25px;
-}
-
-.qrcode img {
-  width: 180px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,255,176,0.7);
-}
-
-/* Rodapé */
-footer {
-  margin-top: 30px;
-  font-size: 0.9rem;
-  color: #aaa;
-}
-
-.highlight-footer {
-  color: #00FFB0;
-  font-weight: bold;
-}
+// Add loading state
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+});
