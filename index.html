@@ -1,127 +1,154 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DR9.AI - Inteligência Artificial e Automação Premium</title>
-  <meta name="description" content="Soluções em IA, automação e licenças digitais. Tecnologia de ponta para transformar seu negócio.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DR9.AI - Inteligência Artificial e Automação Premium</title>
+<meta name="description" content="DR9.AI - Soluções em IA, automação e licenças digitais. Transforme seu negócio com tecnologia de ponta.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- HEADER -->
-  <header id="header">
-    <div class="container">
+
+<!-- PARTICLES (opcional) -->
+<div id="particles-js"></div>
+
+<!-- EMOJIS FLUTUANTES -->
+<div class="floating floating-1">🚀</div>
+<div class="floating floating-2">🤖</div>
+<div class="floating floating-3">💡</div>
+<div class="floating floating-robot">
+  <img src="https://i.ibb.co/3Rp1RnY/robot.png" alt="Robô DR9.AI" width="60" height="60">
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="container">
+    <div class="header-content">
       <a href="#" class="logo">
-        <img src="assets/logo.png" alt="DR9.AI" class="logo-icon">
+        <img src="https://i.ibb.co/0yqJt1J/dr9ai-logo.png" alt="DR9.AI" class="logo-icon">
         <span>DR9.AI</span>
       </a>
-      <nav>
-        <ul class="nav-menu">
+      <button class="mobile-menu" id="mobileMenu"><i class="fas fa-bars"></i></button>
+      <nav id="mainNav">
+        <ul>
           <li><a href="#home">Início</a></li>
           <li><a href="#services">Serviços</a></li>
           <li><a href="#contact">Contato</a></li>
         </ul>
       </nav>
-      <button class="mobile-menu-toggle" id="mobileMenuToggle">
-        <i class="fas fa-bars"></i>
-      </button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-text">
-        <h1>Transforme seu Negócio com <span>Inteligência Artificial</span></h1>
-        <p>Soluções práticas e inovadoras para automação e licenças digitais.</p>
-        <div class="hero-buttons">
-          <a href="https://wa.me/message/JLUZNOGJKK4UK1" class="btn btn-primary">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-          </a>
-          <a href="https://t.me/dr9iSuporte" class="btn btn-secondary">
-            <i class="fab fa-telegram"></i> Telegram
-          </a>
-        </div>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <h1>DR9.AI</h1>
+      <p class="hero-subtitle">Softwares, IA e Automação Descomplicada</p>
+
+      <div class="checkbox-list">
+        <div class="checkbox-item"><div class="checkbox-icon">✓</div><div class="checkbox-text">DM para Licenças Exclusivas</div></div>
+        <div class="checkbox-item"><div class="checkbox-icon">✓</div><div class="checkbox-text">IA e Automação para Empreendedores</div></div>
+        <div class="checkbox-item"><div class="checkbox-icon">✓</div><div class="checkbox-text">Licenças Digitais Fáceis de Usar</div></div>
       </div>
-      <div class="hero-image">
-        <img src="assets/hero-image.svg" alt="Hero Image">
+
+      <div class="buttons">
+        <a href="https://wa.me/message/JLUZNOGJKK4UK1" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+        <a href="https://t.me/dr9iSuporte" class="btn btn-outline"><i class="fab fa-telegram"></i> Falar no Telegram</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SERVICES SECTION -->
-  <section class="services" id="services">
-    <div class="container">
-      <h2>Nossos Serviços</h2>
-      <p>Explore nossas soluções em tecnologia, automação e inteligência artificial.</p>
-      <div class="services-grid">
-        <div class="service-card">
-          <i class="fas fa-robot"></i>
-          <h3>IA e Automação</h3>
-          <p>Automatizamos processos para aumentar a produtividade do seu negócio.</p>
+<!-- FEATURES -->
+<section class="features" id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nossas Soluções em IA</h2>
+      <p>Pré-visualize nossos serviços e escolha o que deseja adquirir</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img src="https://i.ibb.co/0yqJt1J/key-icon.png" alt="Licença Exclusiva" width="40" height="40">
         </div>
-        <div class="service-card">
-          <i class="fas fa-key"></i>
-          <h3>Licenças Digitais</h3>
-          <p>Gerenciamento de licenças para softwares como Adobe e Office.</p>
+        <h3>DM para Licenças Exclusivas</h3>
+        <p>Gerenciamento completo de licenças digitais com segurança avançada.</p>
+        <span class="status status-available">Disponível</span>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img src="https://i.ibb.co/0yqJt1J/brain-icon.png" alt="IA e Automação" width="40" height="40">
         </div>
-        <div class="service-card">
-          <i class="fas fa-cogs"></i>
-          <h3>Sistemas Personalizados</h3>
-          <p>Desenvolvimento de softwares sob medida para sua empresa.</p>
+        <h3>IA e Automação para Empreendedores</h3>
+        <p>Automação de planilhas, posts programados e suporte a sistemas de gestão.</p>
+        <span class="status status-available">Disponível</span>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img src="https://i.ibb.co/0yqJt1J/idcard-icon.png" alt="Licenças Digitais" width="40" height="40">
         </div>
-        <div class="service-card">
-          <i class="fas fa-shield-alt"></i>
-          <h3>Segurança Digital</h3>
-          <p>Proteção de dados e auditoria de sistemas contra ameaças digitais.</p>
-        </div>
+        <h3>Licenças Digitais Fáceis de Usar</h3>
+        <p>Integração com Adobe, Windows, Chimera, Unclock e outras ferramentas.</p>
+        <span class="status status-available">Disponível</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT SECTION -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <h2>Entre em Contato</h2>
-      <p>Pronto para revolucionar seu negócio? Fale conosco agora!</p>
-      <div class="contact-buttons">
-        <a href="https://wa.me/message/JLUZNOGJKK4UK1" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="https://t.me/dr9iSuporte" class="btn btn-secondary"><i class="fab fa-telegram"></i> Telegram</a>
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Pronto para revolucionar seu negócio?</h2>
+      <p>Entre em contato e descubra como a DR9.AI pode transformar sua operação com inteligência artificial.</p>
+      <div class="buttons">
+        <a href="https://wa.me/message/JLUZNOGJKK4UK1" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+        <a href="https://t.me/dr9iSuporte" class="btn btn-outline"><i class="fab fa-telegram"></i> Falar no Telegram</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-columns">
-        <div>
-          <h3>DR9.AI</h3>
-          <p>Soluções práticas e inovadoras para inteligência artificial.</p>
-        </div>
-        <div>
-          <h3>Links Rápidos</h3>
-          <ul>
-            <li><a href="#home">Início</a></li>
-            <li><a href="#services">Serviços</a></li>
-            <li><a href="#contact">Contato</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Contato</h3>
-          <ul>
-            <li><a href="mailto:contato@dr9ai.com">contato@dr9ai.com</a></li>
-            <li><a href="https://wa.me/message/JLUZNOGJKK4UK1">WhatsApp</a></li>
-            <li><a href="https://t.me/dr9iSuporte">Telegram</a></li>
-          </ul>
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>DR9.AI</h3>
+        <p>Inteligência Artificial e Automação Descomplicada para empreendedores.</p>
+        <div class="social-links">
+          <a href="https://wa.me/message/JLUZNOGJKK4UK1"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://t.me/dr9iSuporte"><i class="fab fa-telegram"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
-      <p>&copy; 2025 DR9.AI - Todos os direitos reservados.</p>
+      <div class="footer-column">
+        <h3>Serviços</h3>
+        <ul>
+          <li>IA e Automação</li>
+          <li>Licenças Digitais</li>
+          <li>Consultoria em TI</li>
+          <li>Sistemas Personalizados</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contato</h3>
+        <ul>
+          <li>WhatsApp: <a href="https://wa.me/message/JLUZNOGJKK4UK1">Clique aqui</a></li>
+          <li>Telegram: <a href="https://t.me/dr9iSuporte">Clique aqui</a></li>
+          <li>Email: contato@dr9ai.com</li>
+        </ul>
+      </div>
     </div>
-  </footer>
+    <div class="copyright">&copy; 2025 DR9.AI - Todos os direitos reservados.</div>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
