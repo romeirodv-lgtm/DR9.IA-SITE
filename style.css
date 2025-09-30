@@ -1,9 +1,10 @@
-/* RESET */
+/* ===== RESET E GERAL ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -13,16 +14,10 @@ body {
     overflow-x: hidden;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
 
-ul {
-    list-style: none;
-}
-
-/* FLOATING EMOJIS */
+/* ===== FLOATING EMOJIS ===== */
 .floating {
     position: absolute;
     font-size: 2rem;
@@ -34,18 +29,18 @@ ul {
 .floating-3 { top: 80%; left: 20%; animation-delay: 4s; }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
+    0%,100% { transform: translateY(0) rotate(0deg); }
     50% { transform: translateY(-20px) rotate(20deg); }
 }
 
-/* CONTAINER */
+/* ===== CONTAINER ===== */
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header {
     position: fixed;
     width: 100%;
@@ -68,27 +63,18 @@ header {
     font-weight: 700;
     color: #3FA8FF;
 }
-
-.logo-icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 0.5rem;
-}
+.logo-icon { width: 40px; height: 40px; margin-right: 0.5rem; }
 
 nav ul {
     display: flex;
     gap: 2rem;
 }
-
 nav ul li a {
     color: #fff;
     font-weight: 500;
     transition: 0.3s;
 }
-
-nav ul li a:hover {
-    color: #3FA8FF;
-}
+nav ul li a:hover { color: #3FA8FF; }
 
 /* MOBILE MENU */
 .mobile-menu {
@@ -100,45 +86,69 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero {
     min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     text-align: center;
     padding-top: 100px;
     background: linear-gradient(135deg, #3FA8FF, #187BFF);
+    color: #fff;
+    overflow: hidden;
 }
-
 .hero h1 {
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 900;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeSlideIn 1s forwards;
+    animation-delay: 0.2s;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
     margin-bottom: 1rem;
-    color: #fff;
 }
-
 .hero-subtitle {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeSlideIn 1s forwards;
+    animation-delay: 0.5s;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 }
 
-/* CHECKLISTS */
+/* ===== CHECKLISTS ===== */
 .checkbox-list {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-bottom: 2rem;
 }
-
 .checkbox-item {
     display: flex;
     align-items: center;
-    font-size: 1.2rem;
-    font-weight: 500;
-    animation: fadeInUp 1s ease forwards;
+    gap: 12px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.15);
+    padding: 12px 22px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 0.8s forwards;
 }
-
+.checkbox-item:nth-child(1) { animation-delay: 0.8s; }
+.checkbox-item:nth-child(2) { animation-delay: 1.1s; }
+.checkbox-item:nth-child(3) { animation-delay: 1.4s; }
+.checkbox-item:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-5px);
+    transition: 0.3s;
+    font-size: 1.2rem;
+}
 .checkbox-icon {
     background-color: #fff;
     color: #3FA8FF;
@@ -147,17 +157,13 @@ nav ul li a:hover {
     width: 30px;
     height: 30px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-right: 1rem;
+    align-items: center;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-/* BUTTONS */
+/* ===== BUTTONS ===== */
 .buttons a {
     display: inline-block;
     padding: 0.8rem 1.5rem;
@@ -165,55 +171,49 @@ nav ul li a:hover {
     border-radius: 50px;
     font-weight: 600;
     transition: 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 0.8s forwards;
 }
-
 .btn-primary {
     background-color: #3FA8FF;
     color: #fff;
+    border: none;
 }
-
-.btn-primary:hover {
-    background-color: #187BFF;
-}
-
+.btn-primary:hover { background-color: #187BFF; }
 .btn-outline {
     border: 2px solid #fff;
     color: #fff;
+    background: transparent;
 }
-
 .btn-outline:hover {
     background-color: #fff;
     color: #0a0a0a;
 }
 
-/* FEATURES */
+/* ===== FEATURES ===== */
 .features {
     padding: 6rem 0;
     background-color: #111;
 }
-
 .section-title {
     text-align: center;
     margin-bottom: 4rem;
 }
-
 .section-title h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #3FA8FF;
 }
-
 .section-title p {
     font-size: 1.2rem;
     color: #ccc;
 }
-
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
-
 .feature-card {
     background-color: #1a1a1a;
     padding: 2rem;
@@ -221,108 +221,85 @@ nav ul li a:hover {
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .feature-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 25px rgba(0,0,0,0.5);
 }
-
 .feature-icon {
     font-size: 2.5rem;
     color: #3FA8FF;
     margin-bottom: 1rem;
 }
-
 .feature-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
-
 .feature-card p {
     font-size: 1rem;
     color: #ccc;
     margin-bottom: 1rem;
 }
-
 .status {
     display: inline-block;
     padding: 0.3rem 0.8rem;
     border-radius: 50px;
     font-size: 0.9rem;
 }
-
 .status-available {
     background-color: #00ff7f;
     color: #0a0a0a;
 }
 
-/* CTA */
+/* ===== CTA ===== */
 .cta {
     padding: 6rem 0;
     background: linear-gradient(135deg, #187BFF, #0055CC);
     text-align: center;
 }
+.cta h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+.cta p { font-size: 1.2rem; margin-bottom: 2rem; }
 
-.cta h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.cta p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer {
     background-color: #111;
     padding: 4rem 0;
     color: #ccc;
 }
-
 .footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 2rem;
 }
-
 .footer-column h3 {
     margin-bottom: 1rem;
     color: #3FA8FF;
 }
-
-.footer-column ul li {
-    margin-bottom: 0.5rem;
-}
-
+.footer-column ul li { margin-bottom: 0.5rem; }
 .footer-column ul li a {
     color: #ccc;
     transition: 0.3s;
 }
-
-.footer-column ul li a:hover {
-    color: #3FA8FF;
-}
-
+.footer-column ul li a:hover { color: #3FA8FF; }
 .social-links a {
     margin-right: 1rem;
     color: #fff;
     font-size: 1.5rem;
     transition: 0.3s;
 }
-
-.social-links a:hover {
-    color: #3FA8FF;
-}
-
+.social-links a:hover { color: #3FA8FF; }
 .copyright {
     text-align: center;
     margin-top: 2rem;
     color: #888;
 }
 
-/* RESPONSIVITY */
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeSlideIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 992px) {
     nav ul {
         display: none;
@@ -335,39 +312,14 @@ footer {
         border-radius: 10px;
         padding: 1rem;
     }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    .mobile-menu {
-        display: block;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
+    nav ul.show { display: flex; }
+    .mobile-menu { display: block; }
+    .features-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.2rem; }
 }
-
 @media (max-width: 576px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .buttons a {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-    }
+    .hero h1 { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .buttons a { padding: 0.6rem 1rem; font-size: 0.9rem; }
 }
