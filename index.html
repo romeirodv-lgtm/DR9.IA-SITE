@@ -6,59 +6,75 @@
     <title>DR9.AI - Inteligência Artificial e Automação Premium</title>
     <meta name="description" content="DR9.AI - Soluções em IA, automação e licenças digitais. Transforme seu negócio com tecnologia de ponta.">
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Particles Background -->
     <div id="particles-js"></div>
 
-    <!-- Floating Elements -->
     <div class="floating floating-1">🚀</div>
     <div class="floating floating-2">🤖</div>
     <div class="floating floating-3">💡</div>
 
-    <!-- Header -->
     <header id="header">
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">
-                    <img src="assets/logo.png" alt="DR9.AI" class="logo-icon">
-                    <span>DR9.AI</span>
-                </a>
-                <button class="mobile-menu" id="mobileMenu">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <a href="#" class="logo"><i class="fas fa-robot logo-icon"></i> DR9.AI</a>
+                <button class="mobile-menu" id="mobileMenu"><i class="fas fa-bars"></i></button>
                 <nav id="mainNav">
                     <ul>
                         <li><a href="#home">Início</a></li>
                         <li><a href="#services">Serviços</a></li>
                         <li><a href="#contact">Contato</a></li>
+                        <li class="menu-dropdown">
+                            <a href="#">📋 Menu</a>
+                            <ul class="dropdown-content">
+                                <li><a href="#">1️⃣ Licenças Exclusivas</a></li>
+                                <li><a href="#">2️⃣ Desbloqueio Técnico - Chimera</a></li>
+                                <li><a href="#">3️⃣ Desbloqueio IMEI (Privado)</a></li>
+                                <li><a href="#">4️⃣ Licenças PC (Adobe, Office)</a></li>
+                                <li><a href="#">5️⃣ Consultoria TI</a></li>
+                                <li><a href="#">6️⃣ Fluxo de IA Automática</a></li>
+                                <li><a href="#">7️⃣ Planilhas & Posts Programados</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <h1>DR9.AI</h1>
                 <p>Softwares, IA e Automação Descomplicada</p>
+
+                <div class="checkbox-list">
+                    <div class="checkbox-item"><div class="checkbox-icon checkbox-available">✓</div><div class="checkbox-text">Licenças Digitais Exclusivas</div></div>
+                    <div class="checkbox-item"><div class="checkbox-icon checkbox-available">✓</div><div class="checkbox-text">IA e Automação Inteligente</div></div>
+                    <div class="checkbox-item"><div class="checkbox-icon checkbox-available">✓</div><div class="checkbox-text">Suporte Técnico e Consultoria</div></div>
+                </div>
+
                 <div class="buttons">
-                    <a href="https://wa.me/message/JLUZNOGJKK4UK1" class="btn btn-primary" onclick="trackPixel('WHATSAPP_PIXEL_ID')">
-                        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
-                    </a>
-                    <a href="https://t.me/dr9iSuporte" class="btn btn-outline" onclick="trackPixel('TELEGRAM_PIXEL_ID')">
-                        <i class="fab fa-telegram"></i> Falar no Telegram
-                    </a>
+                    <a href="https://wa.me/5562991476973?text=👋%20Olá,%20seja%20bem-vindo%20à%20DR9.AI!%0A
+Escolha%20uma%20opção:%0A%0A
+1️⃣%20Licenças%20Exclusivas%0A
+2️⃣%20Desbloqueio%20Técnico%20-%20Chimera%0A
+3️⃣%20Desbloqueio%20IMEI%20(privado)%0A
+4️⃣%20Licenças%20PC%20(Adobe,%20Office)%0A
+5️⃣%20Consultoria%20TI%0A
+6️⃣%20Fluxo%20IA%20Automática%0A
+7️⃣%20Planilhas%20e%20Posts%20Programados%0A%0A
+👉%20Digite%20o%20número%20da%20opção."
+                    class="btn btn-primary"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+
+                    <a href="https://t.me/dr9iSuporte?start=menu" class="btn btn-outline"><i class="fab fa-telegram"></i> Falar no Telegram</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features" id="services">
         <div class="container">
             <div class="section-title">
@@ -68,53 +84,58 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-key"></i></div>
-                    <h3>DM para Licenças Exclusivas</h3>
-                    <p>Sistema de gerenciamento de licenças digitais com controle total, segurança avançada e relatórios detalhados.</p>
+                    <h3>Licenças Digitais</h3>
+                    <p>Sistema de licenciamento seguro e fácil de usar, com controle e relatórios completos.</p>
                     <span class="status status-available">Disponível</span>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-brain"></i></div>
-                    <h3>IA e Automação para Empreendedores</h3>
-                    <p>Automação de planilhas, posts programados em Instagram, e suporte a sistemas de gestão.</p>
+                    <h3>IA e Automação</h3>
+                    <p>Inteligência Artificial personalizada para simplificar processos e aumentar produtividade.</p>
                     <span class="status status-available">Disponível</span>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-id-card"></i></div>
-                    <h3>Licenças Digitais Fáceis de Usar</h3>
-                    <p>Integração com pacotes Adobe, Windows, Chimera, Unclock e outras ferramentas do mercado.</p>
+                    <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Consultoria Técnica</h3>
+                    <p>Suporte profissional em TI, sistemas personalizados e integração de ferramentas digitais.</p>
                     <span class="status status-available">Disponível</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta" id="contact">
         <div class="container">
             <div class="cta-content">
                 <h2>Pronto para revolucionar seu negócio?</h2>
-                <p>Entre em contato agora mesmo e descubra como a DR9.AI pode transformar sua operação com inteligência artificial.</p>
+                <p>Entre em contato agora mesmo e descubra como a DR9.AI pode transformar sua operação com inteligência artificial</p>
                 <div class="buttons">
-                    <a href="https://wa.me/message/JLUZNOGJKK4UK1" class="btn btn-primary" onclick="trackPixel('WHATSAPP_PIXEL_ID')">
-                        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
-                    </a>
-                    <a href="https://t.me/dr9iSuporte" class="btn btn-outline" onclick="trackPixel('TELEGRAM_PIXEL_ID')">
-                        <i class="fab fa-telegram"></i> Falar no Telegram
-                    </a>
+                    <a href="https://wa.me/5562991476973?text=👋%20Olá,%20seja%20bem-vindo%20à%20DR9.AI!%0A
+Escolha%20uma%20opção:%0A%0A
+1️⃣%20Licenças%20Exclusivas%0A
+2️⃣%20Desbloqueio%20Técnico%20-%20Chimera%0A
+3️⃣%20Desbloqueio%20IMEI%20(privado)%0A
+4️⃣%20Licenças%20PC%20(Adobe,%20Office)%0A
+5️⃣%20Consultoria%20TI%0A
+6️⃣%20Fluxo%20IA%20Automática%0A
+7️⃣%20Planilhas%20e%20Posts%20Programados%0A%0A
+👉%20Digite%20o%20número%20da%20opção."
+                    class="btn btn-primary"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+
+                    <a href="https://t.me/dr9iSuporte?start=menu" class="btn btn-outline"><i class="fab fa-telegram"></i> Falar no Telegram</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>DR9.AI</h3>
-                    <p>Inteligência Artificial e Automação Descomplicada para empreendedores.</p>
+                    <p>Inteligência Artificial e Automação para empreendedores que buscam inovação e resultados.</p>
                     <div class="social-links">
-                        <a href="https://wa.me/message/JLUZNOGJKK4UK1"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/5562991476973"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://t.me/dr9iSuporte"><i class="fab fa-telegram"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -132,18 +153,35 @@
                 <div class="footer-column">
                     <h3>Contato</h3>
                     <ul>
-                        <li><a href="https://wa.me/message/JLUZNOGJKK4UK1"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                        <li><a href="https://wa.me/5562991476973"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
                         <li><a href="https://t.me/dr9iSuporte"><i class="fab fa-telegram"></i> Telegram</a></li>
                         <li><a href="#"><i class="fas fa-envelope"></i> contato@dr9ai.com</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 DR9.AI - Todos os direitos reservados.</p>
+                <p>&copy; 2025 DR9.AI - Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Menu dropdown
+        document.querySelectorAll('.menu-dropdown').forEach(drop => {
+            drop.addEventListener('mouseenter', () => {
+                drop.querySelector('.dropdown-content').style.display = 'block';
+            });
+            drop.addEventListener('mouseleave', () => {
+                drop.querySelector('.dropdown-content').style.display = 'none';
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mainNav = document.getElementById('mainNav');
+        mobileMenu.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+    </script>
 </body>
-</html>
+</html> 
