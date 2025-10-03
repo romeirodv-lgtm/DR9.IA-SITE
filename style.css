@@ -1,85 +1,20 @@
-/* RESET */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #0d0d0d;
-  color: #fff;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+// MENU MOBILE
+const mobileMenu = document.getElementById("mobileMenu");
+const mainNav = document.getElementById("mainNav");
 
-/* CONTAINER */
-.container { width: 90%; max-width: 1200px; margin: auto; }
+mobileMenu.addEventListener("click", () => {
+  mainNav.querySelector("ul").classList.toggle("active");
+});
 
-/* HEADER */
-#header {
-  position: fixed;
-  width: 100%;
-  top: 0; left: 0;
-  z-index: 1000;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
-  padding: 15px 0;
-}
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo { display: flex; align-items: center; font-weight: 700; font-size: 20px; color: #fff; }
-.logo-icon { width: 40px; margin-right: 8px; }
-nav ul { display: flex; list-style: none; gap: 20px; }
-nav ul li a { color: #fff; text-decoration: none; transition: color .3s; }
-nav ul li a:hover { color: #0af; }
-.mobile-menu { display: none; background: none; border: none; font-size: 24px; color: #fff; }
-
-/* HERO */
-.hero { display: flex; align-items: center; justify-content: center; height: 100vh; text-align: center; }
-.hero h1 { font-size: 60px; background: linear-gradient(90deg,#00f,#a0f); -webkit-background-clip: text; color: transparent; }
-.hero-subtitle { font-size: 20px; margin: 15px 0; }
-.checkbox-list { margin: 20px 0; }
-.checkbox-item { display: flex; align-items: center; justify-content: center; margin: 10px 0; }
-.checkbox-icon { margin-right: 10px; color: #0af; font-weight: bold; }
-.buttons a { margin: 10px; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-decoration: none; }
-.btn-primary { background: linear-gradient(90deg,#0072ff,#8e2de2); color: #fff; }
-.btn-outline { border: 2px solid #fff; color: #fff; }
-.btn-primary:hover, .btn-outline:hover { opacity: 0.8; }
-
-/* FEATURES */
-.features { padding: 100px 0; background: #111; }
-.section-title { text-align: center; margin-bottom: 50px; }
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 20px; }
-.feature-card { background: #1a1a1a; padding: 25px; border-radius: 15px; text-align: center; transition: transform .3s; }
-.feature-card:hover { transform: translateY(-8px); }
-.feature-icon { font-size: 40px; margin-bottom: 15px; color: #0af; }
-.btn-learn { display: inline-block; margin-top: 12px; padding: 8px 18px; border-radius: 20px; background: linear-gradient(90deg,#0072ff,#8e2de2); color: #fff; text-decoration: none; }
-.status { display: block; margin-top: 10px; font-size: 14px; }
-.status-available { color: #0f0; }
-
-/* CTA */
-.cta { padding: 80px 0; text-align: center; background: linear-gradient(90deg,#0072ff,#8e2de2); }
-.cta h2 { font-size: 36px; margin-bottom: 15px; }
-.cta p { margin-bottom: 20px; }
-
-/* FOOTER */
-footer { padding: 60px 0; background: #000; }
-.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 30px; }
-.footer-column h3 { margin-bottom: 15px; }
-.footer-column ul { list-style: none; }
-.footer-column ul li { margin: 8px 0; }
-.social-links a { color: #fff; margin-right: 10px; font-size: 18px; }
-footer .copyright { text-align: center; margin-top: 20px; font-size: 14px; color: #666; }
-
-/* FLOATING EMOJIS */
-.floating { position: absolute; font-size: 30px; animation: float 6s infinite ease-in-out; opacity: 0.6; }
-.floating-1 { top: 20%; left: 10%; }
-.floating-2 { top: 50%; right: 15%; }
-.floating-3 { bottom: 15%; left: 25%; }
-@keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  nav ul { display: none; flex-direction: column; background: #111; position: absolute; top: 70px; right: 20px; padding: 20px; border-radius: 10px; }
-  nav ul.active { display: flex; }
-  .mobile-menu { display: block; }
-}
+// PARTICLES.JS CONFIG
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 60 },
+    "color": { "value": "#0af" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.5 },
+    "size": { "value": 3 },
+    "line_linked": { "enable": true, "distance": 150, "color": "#0af", "opacity": 0.4, "width": 1 },
+    "move": { "enable": true, "speed": 2 }
+  }
+});
