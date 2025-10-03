@@ -10,7 +10,7 @@
 <style>
 /* Reset e base */
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Poppins',sans-serif; background:#0d0d0d; color:#f0f0f0; line-height:1.6;}
+body {font-family:'Poppins',sans-serif; background:#0d0d0d; color:#f0f0f0; line-height:1.6; scroll-behavior: smooth;}
 a {text-decoration:none; color:inherit;}
 ul {list-style:none;}
 h1,h2,h3 {margin-bottom:15px;}
@@ -24,15 +24,14 @@ header nav ul li a {color:#f0f0f0; transition: color 0.3s;}
 header nav ul li a:hover {color:#00f7ff;}
 
 /* Hero */
-.hero {text-align:center; padding:120px 20px 60px 20px; position:relative;}
+.hero {text-align:center; padding:140px 20px 80px 20px; position:relative; overflow:hidden;}
 .hero::before {
-  content:"";
-  position:absolute;
-  top:0; left:0; width:100%; height:100%;
-  background:radial-gradient(circle, rgba(0,247,255,0.05) 1px, transparent 1px);
-  background-size:20px 20px;
-  z-index:0;
+  content:""; position:absolute; top:0; left:0; width:100%; height:100%;
+  background: radial-gradient(circle, rgba(0,247,255,0.08) 1px, transparent 1px);
+  background-size:20px 20px; z-index:0;
 }
+.hero-canvas {position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;}
+.hero-content {position:relative; z-index:1;}
 .gradient-text {font-size:3rem; font-weight:800; background:linear-gradient(270deg,#00f7ff,#00d0ff,#00f7ff); background-size:600% 600%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation: gradientAnimation 8s ease infinite;}
 @keyframes gradientAnimation {0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 .typewriter {display:inline-block; overflow:hidden; border-right:.15em solid #00f7ff; white-space:nowrap; letter-spacing:.05em; animation:typing 3s steps(40,end), blink-caret .75s step-end infinite;}
@@ -49,9 +48,10 @@ header nav ul li a:hover {color:#00f7ff;}
 
 /* Cards Grid */
 .cards-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; max-width:1200px; margin:50px auto;}
-.card {background:#1a1a1a; border-radius:15px; padding:30px 20px; text-align:center; position:relative; transition: transform 0.3s, box-shadow 0.3s, border 0.3s;}
-.card:hover {transform:translateY(-8px) scale(1.03); box-shadow:0 0 20px rgba(0,247,255,0.6); border:1px solid #00f7ff;}
-.card i {font-size:2.5rem; color:#00f7ff; margin-bottom:15px;}
+.card {background:#1a1a1a; border-radius:15px; padding:30px 20px; text-align:center; position:relative; transition: transform 0.3s, box-shadow 0.3s, border 0.3s; transform-style: preserve-3d; perspective: 1000px; opacity:0; transform: translateY(40px);}
+.card.visible {opacity:1; transform:translateY(0);}
+.card:hover {transform: rotateY(var(--rotateY,0deg)) rotateX(var(--rotateX,0deg)) scale(1.05); box-shadow:0 20px 40px rgba(0,247,255,0.6); border:1px solid #00f7ff;}
+.card i {font-size:2.5rem; color:#00f7ff; margin-bottom:15px; transition: transform 0.3s;}
 .card h3 {color:#00f7ff; font-size:1.4rem; margin-bottom:10px;}
 .card p {font-size:1rem; margin-bottom:15px;}
 .card .btn {display:inline-block; padding:8px 18px; margin:5px 5px 0 5px; border-radius:8px; cursor:pointer; transition:all 0.3s;}
@@ -59,7 +59,7 @@ header nav ul li a:hover {color:#00f7ff;}
 /* Modal */
 .modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:100;}
 .modal.show {display:flex;}
-.modal-content {background:#111; padding:30px; border-radius:15px; max-width:550px; width:90%; text-align:center; transform:scale(0.8); opacity:0; transition: transform 0.3s, opacity 0.3s;}
+.modal-content {background:#111; padding:30px; border-radius:15px; max-width:600px; width:90%; text-align:center; transform:scale(0.8); opacity:0; transition: transform 0.3s, opacity 0.3s;}
 .modal.show .modal-content {transform:scale(1); opacity:1;}
 .modal-content h3 {color:#00f7ff; margin-bottom:15px;}
 .modal-content p {margin-bottom:20px; text-align:left;}
@@ -67,7 +67,7 @@ header nav ul li a:hover {color:#00f7ff;}
 .modal .close-btn:hover {color:#00d0ff;}
 
 /* CTA Section */
-.cta {text-align:center; padding:80px 20px; background:#111; border-top:1px solid #222;}
+.cta {text-align:center; padding:100px 20px; background:#111; border-top:1px solid #222;}
 
 /* Footer */
 footer {text-align:center; padding:30px 10px; background:#111; color:#aaa;}
@@ -76,7 +76,7 @@ footer a:hover {transform:scale(1.2); color:#00d0ff;}
 footer h3 {margin-bottom:10px;}
 
 /* Responsivo */
-@media(max-width:768px){body{padding:20px 10px;} header{padding:15px 20px;} .hero{padding:100px 10px 50px 10px;}}
+@media(max-width:768px){body{padding:20px 10px;} header{padding:15px 20px;} .hero{padding:120px 10px 50px 10px;} .gradient-text{font-size:2rem;}}
 </style>
 </head>
 <body>
@@ -93,49 +93,32 @@ footer h3 {margin-bottom:10px;}
 </header>
 
 <section class="hero" id="home">
-  <h1 class="gradient-text">DR9.AI</h1>
-  <p class="typewriter">Softwares, IA e Automação Descomplicada</p>
-  <div class="hero-buttons">
-    <a href="https://wa.me/message/JLUZNOGJKK4UK1" class="btn btn-primary pulse"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="https://t.me/dr9iSuporte" class="btn btn-outline pulse"><i class="fab fa-telegram"></i> Telegram</a>
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <h1 class="gradient-text">DR9.AI</h1>
+    <p class="typewriter">Softwares, IA e Automação Descomplicada</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/message/JLUZNOGJKK4UK1" class="btn btn-primary pulse"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://t.me/dr9iSuporte" class="btn btn-outline pulse"><i class="fab fa-telegram"></i> Telegram</a>
+    </div>
+    <span class="badge">✅ Suporte humano + IA em tempo real</span>
   </div>
-  <span class="badge">✅ Suporte humano + IA em tempo real</span>
 </section>
 
 <section class="services" id="services">
- <section class="services" id="services">
-  <h2>Serviços DR9.AI</h2>
+  <h2 style="text-align:center; margin-bottom:40px;">Serviços DR9.AI</h2>
   <div class="cards-grid">
-    <!-- IA e Automação para Empreendedores -->
-    <div class="card" data-description="🤖 Bots inteligentes que atendem clientes 24/7.
-• Processos automatizados que economizam tempo e recursos.
-• Análise de dados poderosa para decisões estratégicas.
-• Fácil de implementar, mesmo sem experiência técnica.">
+    <div class="card" data-description="🤖 Bots inteligentes que atendem clientes 24/7. • Processos automatizados que economizam tempo e recursos. • Análise de dados poderosa para decisões estratégicas. • Fácil de implementar, mesmo sem experiência técnica.">
       <i class="fas fa-robot"></i>
       <h3>IA e Automação para Empreendedores</h3>
       <a class="btn btn-outline know-more">Saiba Mais</a>
     </div>
-
-    <!-- DM para Licenças Exclusivas -->
-    <div class="card" data-description="📦 DM para Licenças Exclusivas
-• Android Multi Tool — Ferramentas para manutenção e reparos em dispositivos Android.
-• Global Unlocker Pro — Unlock e reparo de IMEI/assinaturas.
-• Chimera Tool — Soluções avançadas de desbloqueio e reparo.
-• Griffin Unlocker — Unlocks e recursos avançados para modelos recentes.
-• Borneo Schematics — Esquemas e recursos técnicos para reparos.
-Ideal para técnicos, revendedores e equipes de suporte que precisam de agilidade e confiabilidade.">
+    <div class="card" data-description="📦 DM para Licenças Exclusivas • Android Multi Tool — Ferramentas para manutenção e reparos em dispositivos Android. • Global Unlocker Pro — Unlock e reparo de IMEI/assinaturas. • Chimera Tool — Soluções avançadas de desbloqueio e reparo. • Griffin Unlocker — Unlocks e recursos avançados para modelos recentes. • Borneo Schematics — Esquemas e recursos técnicos para reparos. Ideal para técnicos, revendedores e equipes de suporte que precisam de agilidade e confiabilidade.">
       <i class="fas fa-key"></i>
       <h3>DM para Licenças Exclusivas</h3>
       <a class="btn btn-outline know-more">Saiba Mais</a>
     </div>
-
-    <!-- Licenças Digitais Fáceis de Usar -->
-    <div class="card" data-description="💻 Licenças Digitais Fáceis de Usar
-• Adobe Creative Cloud – Photoshop, Illustrator, Premiere, After Effects e mais.
-• CorelDRAW Graphics Suite – Design gráfico, vetores e layout profissional.
-• Microsoft 365 – Word, Excel, PowerPoint, Outlook e ferramentas de produtividade.
-• Canva Pro – Design fácil e rápido para redes sociais, marketing e apresentações.
-Ideal para designers, empreendedores e profissionais que buscam eficiência e produtividade.">
+    <div class="card" data-description="💻 Licenças Digitais Fáceis de Usar • Adobe Creative Cloud – Photoshop, Illustrator, Premiere, After Effects e mais. • CorelDRAW Graphics Suite – Design gráfico, vetores e layout profissional. • Microsoft 365 – Word, Excel, PowerPoint, Outlook e ferramentas de produtividade. • Canva Pro – Design fácil e rápido para redes sociais, marketing e apresentações. Ideal para designers, empreendedores e profissionais que buscam eficiência e produtividade.">
       <i class="fas fa-cogs"></i>
       <h3>Licenças Digitais Fáceis de Usar</h3>
       <a class="btn btn-outline know-more">Saiba Mais</a>
@@ -143,7 +126,6 @@ Ideal para designers, empreendedores e profissionais que buscam eficiência e pr
   </div>
 </section>
 
-<!-- Modal -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <span class="close-btn" id="closeModal" aria-label="Fechar">&times;</span>
@@ -173,51 +155,76 @@ Ideal para designers, empreendedores e profissionais que buscam eficiência e pr
   <p>&copy; 2025 DR9.AI - Todos os direitos reservados.</p>
 </footer>
 
-<!-- Scripts -->
 <script>
-const modal = document.getElementById('modal');
-const modalTitle = document.getElementById('modalTitle');
-const modalDesc = document.getElementById('modalDesc');
-const modalActions = document.getElementById('modalActions');
-const closeModalBtn = document.getElementById('closeModal');
-
-function makeContactButtons(titleText) {
-  const message = encodeURIComponent(`Olá! Gostaria de informações sobre: ${titleText}`);
-  const waLink = `https://wa.me/?text=${message}`;
-  const tgLink = `https://t.me/share/url?url=&text=${message}`;
-
+// Modal
+const modal=document.getElementById('modal');
+const modalTitle=document.getElementById('modalTitle');
+const modalDesc=document.getElementById('modalDesc');
+const modalActions=document.getElementById('modalActions');
+const closeModalBtn=document.getElementById('closeModal');
+function makeContactButtons(titleText){
+  const message=encodeURIComponent(`Olá! Gostaria de informações sobre: ${titleText}`);
+  const waLink=`https://wa.me/?text=${message}`;
+  const tgLink=`https://t.me/share/url?url=&text=${message}`;
   return `
-    <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-right:10px;">
-      <i class="fab fa-whatsapp"></i> Solicitar via WhatsApp
-    </a>
-    <a href="${tgLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-      <i class="fab fa-telegram"></i> Solicitar via Telegram
-    </a>
+    <a href="${waLink}" target="_blank" class="btn btn-primary" style="margin-right:10px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="${tgLink}" target="_blank" class="btn btn-outline"><i class="fab fa-telegram"></i> Telegram</a>
   `;
 }
-
-document.querySelectorAll('.know-more').forEach(button => {
-  button.addEventListener('click', () => {
-    const card = button.closest('.card');
-    const title = card.querySelector('h3').textContent || 'Serviço DR9.AI';
-    const raw = card.getAttribute('data-description') || '';
-    modalTitle.textContent = title;
-    modalDesc.innerHTML = raw.replace(/\n/g, '<br>');
-    modalActions.innerHTML = makeContactButtons(title);
+document.querySelectorAll('.know-more').forEach(button=>{
+  button.addEventListener('click',()=>{
+    const card=button.closest('.card');
+    const title=card.querySelector('h3').textContent||'Serviço DR9.AI';
+    const raw=card.getAttribute('data-description')||'';
+    modalTitle.textContent=title;
+    modalDesc.innerHTML=raw.replace(/\n/g,'<br>');
+    modalActions.innerHTML=makeContactButtons(title);
     modal.classList.add('show');
   });
 });
-
-closeModalBtn.addEventListener('click', () => modal.classList.remove('show'));
-window.addEventListener('click', (e) => { if(e.target == modal) modal.classList.remove('show'); });
-window.addEventListener('keydown', (e) => { if(e.key === 'Escape') modal.classList.remove('show'); });
+closeModalBtn.addEventListener('click',()=>modal.classList.remove('show'));
+window.addEventListener('click',(e)=>{if(e.target==modal) modal.classList.remove('show');});
+window.addEventListener('keydown',(e)=>{if(e.key==='Escape') modal.classList.remove('show');});
 
 // Header shadow on scroll
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  if(window.scrollY > 50) header.classList.add('scrolled');
+window.addEventListener('scroll',()=>{
+  const header=document.querySelector('header');
+  if(window.scrollY>50) header.classList.add('scrolled');
   else header.classList.remove('scrolled');
 });
+
+// Hero particles
+const canvas=document.getElementById('heroCanvas');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+let particles=[];
+for(let i=0;i<120;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5})}
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(0,247,255,0.3)';ctx.fill();p.x+=p.dx;p.y+=p.dy;if(p.x>canvas.width)p.x=0;if(p.x<0)p.x=canvas.width;if(p.y>canvas.height)p.y=0;if(p.y<0)p.y=canvas.height;});requestAnimationFrame(animate);}
+animate();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+
+// Cards tilt 3D effect
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('mousemove', e=>{
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rotateY = ((x / rect.width)-0.5)*15;
+    const rotateX = ((y / rect.height)-0.5)*-15;
+    card.style.setProperty('--rotateY', rotateY + 'deg');
+    card.style.setProperty('--rotateX', rotateX + 'deg');
+  });
+  card.addEventListener('mouseleave', ()=>{card.style.setProperty('--rotateY','0deg'); card.style.setProperty('--rotateX','0deg');});
+});
+
+// Scroll animation
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+},{threshold:0.2});
+document.querySelectorAll('.card').forEach(card=>observer.observe(card));
 </script>
 
 </body>
