@@ -3,188 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DR9.AI - Inteligência Artificial e Automação</title>
+<title>DR9.AI - Inteligência Artificial e Automação Premium</title>
+<meta name="description" content="DR9.AI - Soluções em IA, automação, licenças digitais e consultoria para empresas.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* Reset e estilo base */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background-color:#0d0d0d; color:#f0f0f0; font-family: Arial, sans-serif; padding:40px 20px; }
+/* Reset e base */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:'Poppins',sans-serif; background:#0d0d0d; color:#f0f0f0; line-height:1.6;}
+a {text-decoration:none; color:inherit;}
+ul {list-style:none;}
+h1,h2,h3 {margin-bottom:15px;}
 
-/* Títulos */
-h1, h2 { text-align:center; color:#00f7ff; margin-bottom:20px; }
-h1 { font-size:2.5rem; }
-h2 { font-size:2rem; margin-top:50px; }
+/* Header */
+header {display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background:#111; position:sticky; top:0; z-index:100;}
+header .logo {font-size:1.8rem; color:#00f7ff; font-weight:700;}
+header nav ul {display:flex; gap:25px;}
+header nav ul li a {color:#f0f0f0; transition: color 0.3s;}
+header nav ul li a:hover {color:#00f7ff;}
 
-/* Grid de cards */
-.cards-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; max-width:1200px; margin:0 auto 50px auto; }
+/* Hero */
+.hero {text-align:center; padding:120px 20px 60px 20px; position:relative;}
+.gradient-text {font-size:3rem; font-weight:800; background:linear-gradient(270deg,#00f7ff,#00d0ff,#00f7ff); background-size:600% 600%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation: gradientAnimation 8s ease infinite;}
+@keyframes gradientAnimation {0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.typewriter {display:inline-block; overflow:hidden; border-right:.15em solid #00f7ff; white-space:nowrap; letter-spacing:.05em; animation:typing 3s steps(40,end), blink-caret .75s step-end infinite;}
+@keyframes typing {from{width:0;}to{width:100%;}}
+@keyframes blink-caret {0%,100%{border-color:transparent;}50%{border-color:#00f7ff;}}
+.hero-buttons a {margin:0 10px; padding:12px 25px; border-radius:25px; font-weight:600; display:inline-block; transition:transform 0.3s, box-shadow 0.3s;}
+.btn-primary {background:linear-gradient(90deg,#00f7ff,#00d0ff); color:#0d0d0d;}
+.btn-primary:hover {transform:scale(1.05); box-shadow:0 0 15px #00f7ff;}
+.btn-outline {border:2px solid #00f7ff; color:#00f7ff; background:transparent;}
+.btn-outline:hover {transform:scale(1.05); background:#00f7ff; color:#0d0d0d;}
+.pulse {animation:pulseAnim 2s infinite;}
+@keyframes pulseAnim {0%{transform:scale(1); box-shadow:0 0 0 rgba(0,247,255,0.7);}50%{transform:scale(1.05); box-shadow:0 0 20px rgba(0,247,255,0.7);}100%{transform:scale(1); box-shadow:0 0 0 rgba(0,247,255,0.7);}}
+.badge {display:inline-block; margin-top:20px; background:linear-gradient(90deg,#00f7ff,#00d0ff); color:#0d0d0d; padding:6px 16px; border-radius:20px; font-weight:bold; text-transform:uppercase; letter-spacing:1px;}
 
-/* Card */
-.card {
-  background:#1a1a1a; border-radius:12px; padding:25px; position:relative; overflow:visible; transition:transform 0.3s, box-shadow 0.3s;
-}
-.card:hover { transform:translateY(-5px); box-shadow:0 0 20px rgba(0,247,255,0.5); }
+/* Cards Grid */
+.cards-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; max-width:1200px; margin:50px auto;}
+.card {background:#1a1a1a; border-radius:15px; padding:30px 20px; text-align:center; position:relative; transition: transform 0.3s, box-shadow 0.3s, border 0.3s;}
+.card:hover {transform:translateY(-8px) scale(1.03); box-shadow:0 0 20px rgba(0,247,255,0.6); border:1px solid #00f7ff;}
+.card i {font-size:2.5rem; color:#00f7ff; margin-bottom:15px;}
+.card h3 {color:#00f7ff; font-size:1.4rem; margin-bottom:10px;}
+.card p {font-size:1rem; margin-bottom:15px;}
+.card .btn {display:inline-block; padding:8px 18px; margin:5px 5px 0 5px; border-radius:8px; cursor:pointer; transition:all 0.3s;}
 
-/* Ícone */
-.card i { font-size:2rem; color:#00f7ff; margin-bottom:15px; display:block; text-align:center; }
-
-/* Título e descrição */
-.card h3 { font-size:1.3rem; margin-bottom:10px; color:#00f7ff; text-align:center; }
-.card p { font-size:0.95rem; line-height:1.5; margin-bottom:15px; text-align:center; }
-
-/* Botões */
-.card .btn {
-  display:inline-block; padding:8px 15px; margin:5px 5px 0 5px; background:#00f7ff; color:#0d0d0d;
-  border:none; border-radius:8px; text-decoration:none; font-weight:bold; cursor:pointer; transition:background 0.3s, transform 0.2s;
-}
-.card .btn:hover { background:#00d0ff; transform:scale(1.05); }
-
-/* Tooltip/balão */
-.tooltip {
-  position:absolute; top:-10px; left:50%; transform:translateX(-50%) translateY(-100%);
-  background:#00f7ff; color:#0d0d0d; padding:10px; border-radius:10px; font-size:0.9rem; width:220px; text-align:center;
-  box-shadow:0 0 10px rgba(0,247,255,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s; z-index:10;
-}
-.tooltip.show { opacity:1; pointer-events:auto; }
+/* Tooltip */
+.tooltip {position:absolute; top:-10px; left:50%; transform:translateX(-50%) translateY(-100%); background:#00f7ff; color:#0d0d0d; padding:10px; border-radius:10px; font-size:0.9rem; width:220px; text-align:center; opacity:0; pointer-events:none; transition:opacity 0.3s; z-index:10;}
+.tooltip.show {opacity:1; pointer-events:auto;}
 
 /* Modal */
-.modal {
-  display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:100;
-}
-.modal-content {
-  background:#1a1a1a; padding:30px; border-radius:12px; max-width:500px; width:90%; text-align:center; position:relative;
-}
-.modal-content h3 { color:#00f7ff; margin-bottom:15px; }
-.modal-content p { margin-bottom:20px; }
-.modal .close {
-  position:absolute; top:10px; right:15px; font-size:1.5rem; cursor:pointer; color:#00f7ff;
-}
+.modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:100;}
+.modal.show {display:flex;}
+.modal-content {background:#111; padding:30px; border-radius:15px; max-width:500px; width:90%; text-align:center; transform:scale(0.8); opacity:0; transition: transform 0.3s, opacity 0.3s;}
+.modal.show .modal-content {transform:scale(1); opacity:1;}
+.modal-content h3 {color:#00f7ff; margin-bottom:15px;}
+.modal-content p {margin-bottom:20px;}
+.modal .close-btn {position:absolute; top:10px; right:15px; font-size:1.5rem; cursor:pointer; color:#00f7ff; transition:color 0.3s;}
+.modal .close-btn:hover {color:#00d0ff;}
+
+/* CTA Section */
+.cta {text-align:center; padding:80px 20px; background:#111; border-top:1px solid #222;}
+
+/* Footer */
+footer {text-align:center; padding:30px 10px; background:#111; color:#aaa;}
+footer a {color:#00f7ff; margin:0 8px; transition: transform 0.3s;}
+footer a:hover {transform:scale(1.2); color:#00d0ff;}
+footer h3 {margin-bottom:10px;}
 
 /* Responsivo */
-@media(max-width:768px){ body{padding:20px 10px;} }
+@media(max-width:768px){body{padding:20px 10px;} header{padding:15px 20px;} .hero{padding:100px 10px 50px 10px;}}
 </style>
 </head>
 <body>
 
-<h1>DR9.AI - Serviços e Ferramentas</h1>
+<header>
+  <a href="#home" class="logo"><i class="fas fa-robot"></i> DR9.AI</a>
+  <nav>
+    <ul>
+      <li><a href="#home">Início</a></li>
+      <li><a href="#services">Serviços</a></li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+  </nav>
+</header>
 
-<!-- Seções DR9.AI -->
-
-<!-- IA e Automação -->
-<h2>IA e Automação</h2>
-<div class="cards-grid">
-  <div class="card">
-    <i class="fas fa-robot"></i>
-    <h3>Automação de Processos (RPA)</h3>
-    <p>Automatize tarefas repetitivas e manuais.</p>
-    <button class="btn" onclick="showTooltip(this)">Saiba Mais</button>
-    <div class="tooltip">RPA permite automatizar fluxos de trabalho repetitivos, economizando tempo e reduzindo erros.</div>
-    <button class="btn" onclick="openModal('Automação de Processos (RPA)','Solicite automações personalizadas e aumente sua produtividade com RPA.')">Solicitar Serviço</button>
+<section class="hero" id="home">
+  <h1 class="gradient-text">DR9.AI</h1>
+  <p class="typewriter">Softwares, IA e Automação Descomplicada</p>
+  <div class="hero-buttons">
+    <a href="https://wa.me/message/JLUZNOGJKK4UK1" class="btn btn-primary pulse"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://t.me/dr9iSuporte" class="btn btn-outline pulse"><i class="fab fa-telegram"></i> Telegram</a>
   </div>
+  <span class="badge">✅ Suporte humano + IA em tempo real</span>
+</section>
 
-  <div class="card">
-    <i class="fas fa-comments"></i>
-    <h3>Chatbots Inteligentes</h3>
-    <p>Suporte 24/7 via WhatsApp e Telegram.</p>
-    <button class="btn" onclick="showTooltip(this)">Saiba Mais</button>
-    <div class="tooltip">Chatbots atendem clientes automaticamente, respondendo dúvidas e integrando-se a múltiplos canais.</div>
-    <button class="btn" onclick="openModal('Chatbots Inteligentes','Veja como ter suporte automático 24/7 com integração WhatsApp e Telegram.')">Ver Demonstração</button>
+<section class="services" id="services">
+  <h2>Serviços DR9.AI</h2>
+  <div class="cards-grid">
+    <div class="card" data-description="Controle total, segurança avançada e relatórios detalhados.">
+      <i class="fas fa-key"></i>
+      <h3>DM para Licenças Exclusivas</h3>
+      <a class="btn btn-outline know-more">Saiba Mais</a>
+    </div>
+    <div class="card" data-description="Automação personalizada para aumentar produtividade e otimizar processos.">
+      <i class="fas fa-robot"></i>
+      <h3>IA e Automação para Empreendedores</h3>
+      <a class="btn btn-outline know-more">Saiba Mais</a>
+    </div>
+    <div class="card" data-description="Interface intuitiva, suporte completo e integração simplificada.">
+      <i class="fas fa-cogs"></i>
+      <h3>Licenças Digitais Fáceis de Usar</h3>
+      <a class="btn btn-outline know-more">Saiba Mais</a>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- Licenças Digitais -->
-<h2>Licenças Digitais</h2>
-<div class="cards-grid">
-  <div class="card">
-    <i class="fas fa-key"></i>
-    <h3>UClockTool</h3>
-    <p>Controle de horários e produtividade.</p>
-    <button class="btn" onclick="showTooltip(this)">Saiba Mais</button>
-    <div class="tooltip">Monitore presença e produtividade com eficiência e segurança.</div>
-    <button class="btn" onclick="openModal('UClockTool','Controle horários e aumente a produtividade da sua equipe.')">Solicitar Licença</button>
-  </div>
-  <div class="card">
-    <i class="fas fa-cogs"></i>
-    <h3>Chimera</h3>
-    <p>Automação e análise avançada.</p>
-    <button class="btn" onclick="showTooltip(this)">Saiba Mais</button>
-    <div class="tooltip">Automação de processos e análise inteligente de dados.</div>
-    <button class="btn" onclick="openModal('Chimera','Automação e análise de dados de forma avançada.')">Solicitar Licença</button>
-  </div>
-</div>
-
-<!-- Consultoria em TI -->
-<h2>Consultoria em TI</h2>
-<div class="cards-grid">
-  <div class="card">
-    <i class="fas fa-shield-alt"></i>
-    <h3>Auditoria e Segurança de Rede</h3>
-    <p>Identificação de vulnerabilidades e proteção de dados.</p>
-    <button class="btn" onclick="showTooltip(this)">Saiba Mais</button>
-    <div class="tooltip">Avaliação completa da infraestrutura de TI e implementação de medidas de segurança.</div>
-    <button class="btn" onclick="openModal('Auditoria e Segurança','Proteja sua empresa com auditoria completa e medidas preventivas.')">Solicitar Serviço</button>
-  </div>
-</div>
-
-<!-- Sistemas Personalizados -->
-<h2>Sistemas Personalizados</h2>
-<div class="cards-grid">
-  <div class="card">
-    <i class="fas fa-laptop-code"></i>
-    <h3>Desenvolvimento Web/Mobile</h3>
-    <p>Softwares sob medida para o seu negócio.</p>
-    <button class="btn" onclick="showTooltip(this)">Saiba Mais</button>
-    <div class="tooltip">Soluções personalizadas para atender necessidades específicas de empresas.</div>
-    <button class="btn" onclick="openModal('Desenvolvimento Web/Mobile','Softwares sob medida para empresas e empreendedores.')">Ver Demonstração</button>
-  </div>
-</div>
-
-<!-- Ferramentas Técnicos de Celular -->
-<h2>Ferramentas de Técnicos de Celular</h2>
-<div class="cards-grid">
-  <div class="card">
-    <i class="fas fa-lock"></i>
-    <h3>FRP Tools</h3>
-    <p>Remover contas Google (Factory Reset Protection).</p>
-    <button class="btn" onclick="showTooltip(this)">Saiba Mais</button>
-    <div class="tooltip">Ferramenta essencial para desbloquear dispositivos Android bloqueados.</div>
-    <button class="btn" onclick="openModal('FRP Tools','Remova contas Google de aparelhos bloqueados rapidamente.')">Ver Demonstração</button>
-  </div>
-</div>
-
-<!-- Modal -->
-<div id="modal" class="modal">
+<div class="modal" id="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h3 id="modal-title"></h3>
-    <p id="modal-text"></p>
-    <button class="btn" onclick="closeModal()">Fechar</button>
+    <span class="close-btn" id="closeModal">&times;</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
   </div>
 </div>
+
+<section class="cta" id="contact">
+  <h2>Pronto para revolucionar seu negócio?</h2>
+  <p>Entre em contato agora mesmo e descubra como a DR9.AI pode transformar sua operação com inteligência artificial.</p>
+  <div class="hero-buttons">
+    <a href="https://wa.me/message/JLUZNOGJKK4UK1" class="btn btn-primary pulse"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://t.me/dr9iSuporte" class="btn btn-outline pulse"><i class="fab fa-telegram"></i> Telegram</a>
+  </div>
+</section>
+
+<footer>
+  <h3>DR9.AI</h3>
+  <div class="social-links">
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <a href="#"><i class="fab fa-telegram"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+  <p>&copy; 2025 DR9.AI - Todos os direitos reservados.</p>
+</footer>
 
 <script>
-/* Tooltip */
-function showTooltip(btn) {
-  const tooltip = btn.nextElementSibling;
-  tooltip.classList.toggle('show');
-}
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const closeModalBtn = document.getElementById('closeModal');
 
-/* Modal */
-function openModal(title,text){
-  document.getElementById('modal-title').innerText=title;
-  document.getElementById('modal-text').innerText=text;
-  document.getElementById('modal').style.display='flex';
-}
+document.querySelectorAll('.know-more').forEach(button => {
+  button.addEventListener('click', () => {
+    const card = button.closest('.card');
+    modalTitle.textContent = card.querySelector('h3').textContent;
+    modalDesc.textContent = card.getAttribute('data-description');
+    modal.classList.add('show');
+  });
+});
 
-function closeModal(){
-  document.getElementById('modal').style.display='none';
-}
+closeModalBtn.addEventListener('click', () => { modal.classList.remove('show'); });
 
-/* Fechar modal clicando fora */
-window.onclick = function(event){
-  const modal=document.getElementById('modal');
-  if(event.target===modal){ modal.style.display='none'; }
-}
+window.addEventListener('click', (e) => {
+  if(e.target == modal) modal.classList.remove('show');
+});
 </script>
-
 </body>
 </html>
